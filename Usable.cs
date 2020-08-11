@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Input Script can have a Useble variable that is a place holder for many useble objects by using an abstract class
+// Abstract class gives contoller input script a way to interact with many usable objects
 public abstract class Usable : MonoBehaviour
 {
-    // This flag ensures only one controller at a time is holding the object (used in controller scripts)
+    // This flag ensures only one controller at a time is holding the object
     public bool beingHeld = false;
 
-    // These methods will be called from Input scripts on different kinds of usable objects
+    // These methods will be called from controller input scripts, returning 0 overrides the default action
     public abstract int UseTrigger(float triggerPressure);
     public abstract int UsePrimaryButton(bool buttonPressed);
     public abstract int UseSecondaryButton(bool buttonPressed);
-    public abstract int UseJoystick(Vector2 joystickInput);
-    
-    // Returning 0 overrides the default trigger action, if it were 1 it would do both
+    public abstract int UseJoystick(Vector2 joystickInput);      
 }
